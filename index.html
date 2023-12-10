@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gridddles :-)</title>
+
+    <!-- adding the link to the stylesheet for the document -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- font awesome cdn link -->
+    <script src="https://kit.fontawesome.com/c963c47e7a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav>
+        <a href="" id="nav-logo">
+            <i class="fas fa-puzzle-piece"></i>
+            Gridddles
+        </a>
+
+        <span id="attribution-text">
+            made by <a href="" id="attribution-link">mabawonku joshua</a>
+        </span>
+    </nav>
+
+    <section class="data" id="riddles-ctn">
+        <div id="load-state">
+            <span class="fas fa-spinner fa-pulse"></span>
+            <span> loading </span>
+        </div>
+        
+        <div id="error-state">
+            <div>
+                <span class="fas fa-exclamation-triangle"></span>
+                <span> loading error </span>
+            </div>
+
+            <button id="retry-btn">
+                retry
+            </button>
+        </div>
+
+        <div id="data-state">
+            <span id="previous-btn" class="fas fa-arrow-left button invalid"></span>
+
+            <div>
+                <span id="title">something secret</span>
+
+                <h1 id="riddle">
+                    Im tall, am dark, have big lips very big, what am i?
+                </h1>
+
+                <div id="answer" class="not-show">
+                    <div id="answer-bar">
+                        <span id="show-btn">
+                            show answer
+                            <span class="fas fa-caret-down"></span>
+                            <span class="fas fa-caret-up"></span>
+                        </span>
+
+                        <span class="group">
+                            <a href="http://" id="download-link" >
+                                <span class="fas fa-download"></span>
+                            </a>
+                        </span>
+                    </div>
+
+                    <div id="answer-ctn">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Blanditiis provident iusto vero esse voluptatem. 
+                        Quidem nisi ex dicta assumenda, 
+                        in nulla error sunt laboriosam iste corrupti quas aperiam aspernatur quis.
+                    </div>
+                </div>
+            </div>
+
+            <span id="next-btn" class="fas fa-arrow-right button"></span>
+        </div>
+    </section>
+
+    <!-- adding a script to the document -->
+    <script src="./script.js" type="module"></script>
+</body>
+</html>

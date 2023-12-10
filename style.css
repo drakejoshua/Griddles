@@ -1,0 +1,281 @@
+/* default styles for the page */
+* {
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+:root {
+    --marginal-padding: 6.25rem;
+}
+body {
+    margin-block: 0rem;
+    margin-inline: 0rem;
+    background-color: wheat;
+    display: flex;
+    flex-direction: column;
+    inline-size: 100vw;
+    block-size: 100vh;
+}
+
+
+
+/* styling the navbar */
+nav {
+    padding-inline: var(--marginal-padding);
+    padding-block: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-block-size: fit-content;
+    flex-wrap: wrap;
+}
+nav > a#nav-logo {
+    text-transform: capitalize;
+    font-size: 1.5625rem;
+    text-decoration: none;
+    color: black;
+}
+nav > span#attribution-text {
+    text-transform: capitalize;
+    text-decoration: none;
+}
+nav > span#attribution-text > * {
+    color: black;
+}
+
+
+/* styling the riddles section */
+section {
+    padding-inline: var(--marginal-padding);
+    flex-grow: 1;
+}
+section > * {
+    inline-size: 100%;
+    block-size: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* styling the conditional display logic for the states of the riddles section */
+section.data > div#load-state, section.data > div#error-state {
+    display: none;
+}
+section.loading > div#data-state, section.loading > div#error-state {
+    display: none;
+}
+section.error > div#load-state, section.error > div#data-state {
+    display: none;
+}
+
+
+/* styling the load, error and data states */
+section > div#load-state {
+    gap: 0.9375rem;
+}
+section > div#load-state > span {
+    font-size: 1.4375rem;
+    text-transform: capitalize;
+}
+section > div#load-state > span.fas {
+    font-size: 1.875rem;
+}
+
+
+section > div#error-state {
+    gap: 3.125rem;
+}
+section > div#error-state > div {
+    gap: 1.25rem;
+    display: flex;
+    align-items: center;
+}
+section > div#error-state > div > span {
+    font-size: 1.4375rem;
+    text-transform: capitalize;
+}
+section > div#error-state > div > span.fas {
+    font-size: 1.875rem;
+}
+section > div#error-state > button#retry-btn {
+    padding-inline: 1.4375rem;
+    padding-block: 0.625rem;
+    border-radius: 0.9375rem;
+    color: white;
+    background-color: black;
+    outline: none;
+    font-size: 1.125rem;
+    text-transform: capitalize;
+    border: medium solid black;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+section > div#data-state {
+    justify-content: space-between;
+}
+section > div#data-state > div {
+    inline-size: 50%;
+}
+section > div#data-state > span {
+    font-size: 2.1875rem;
+    cursor: pointer;
+    transition: 0.5s;
+    -webkit-text-stroke: 0.125rem transparent;
+}
+section > div#data-state > span.button.invalid {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+section > div#data-state > div > span#title {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.875rem;
+}
+section > div#data-state > div > h1 {
+    font-size: clamp( 2.5rem, calc( 2.5vw + 0.5rem ), 5rem );
+    text-transform: capitalize;
+    margin-block-start: 1.25rem;
+    max-block-size: 50vh;
+    overflow: auto;
+}
+div#data-state > div > div#answer > div#answer-bar {
+    padding-block: 0.625rem;
+    padding-inline: 0.625rem;
+    border-block: medium solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block-end: 1.25rem;
+}
+div#answer-bar > span#show-btn {
+    text-transform: capitalize;
+    font-size: 1.125rem;
+    padding-inline: 0.9375rem;
+    padding-block: 0.5rem;
+    border-radius: 1.25rem;
+    transition: 0.5s;
+}
+div#answer-bar > span.group {
+    display: flex;
+    gap: 0.9375rem;
+    align-items: center;
+}
+div#answer-bar > span.group > * {
+    color: black;
+    text-transform: none;
+    font-size: 1.125rem;
+    transition: 0.5s;
+}
+div#answer > div#answer-ctn {
+    font-size: 1.125rem;
+    padding-inline: 0.625rem;
+    transition: 1s;
+    overflow: hidden;
+}
+
+
+
+/* styling the display logic for the show/not-show state of the riddle answer */
+div#data-state > div > div#answer.not-show > div#answer-ctn {
+    block-size: 0rem;
+}
+div#data-state > div > div#answer.show > div#answer-ctn {
+    block-size: 6.25rem;
+}
+div#data-state > div > div#answer.not-show > div#answer-bar > span#show-btn > span.fa-caret-up {
+    display: none;
+}
+div#data-state > div > div#answer.show > div#answer-bar > span#show-btn > span.fa-caret-down {
+    display: none;
+}
+
+
+
+/* adding interaction such as: hover or focus on the page */
+section > div#data-state > span:hover {
+    -webkit-text-stroke: 0.125rem black;
+    color: transparent;
+    transform: scale( 1.2 );
+}
+::selection {
+    color: wheat;
+    background-color: black;
+}
+div#answer-bar > span.group > *:hover {
+    opacity: 0.8;
+}
+div#answer-bar > span#show-btn:hover {
+    background-color: black;
+    color: wheat;
+}
+section > div#error-state > button#retry-btn:hover {
+    color: black;
+    background-color: wheat;
+}
+
+
+
+
+/* adding device responsiveness to the page */
+
+/* for large-screened device like tablets and mini-laptops */
+@media screen and ( max-width: 75rem ) {
+    /* changing the marginal padding in order to streamline 
+    the styles for the page */
+    :root {
+        --marginal-padding: 3.125rem;
+    }
+
+    /* placing the states near the top of the device due to their height */
+    section > * {
+        block-size: 50%;
+    }
+    section > div#data-state > div {
+        inline-size: 60%;
+    }
+}
+
+/* for small-screened devices like mobile phones */
+@media screen and ( max-width: 31.25rem ) {
+    /* changing the marginal padding in order to streamline 
+    the styles for the page */
+    :root {
+        --marginal-padding: 0.625rem;
+    }
+
+    /* re-doing the layout of the nav bar in order to adapt for mobile */
+    nav {
+        gap: 0.4375rem 0rem;
+    }
+    nav > a#nav-logo {
+        inline-size: 100%;
+    }
+
+    /* re-doing the layout for the riddle and answer in 
+    order to adapt for mobile */
+    section > div#data-state {
+        align-items: flex-start;
+        padding-block: 1.25rem;
+    }
+    section > div#data-state > div {
+        inline-size: 100%;
+        order: 1;
+    }
+    section > div#data-state > span.button {
+        order: 2;
+        margin-block-start: 1.25rem;
+    }
+    div#data-state > div > div#answer.show > div#answer-ctn {
+        block-size: 10.625rem;
+    }
+}
+
+/* for accessiblity, like for users that prefer redcued motion or no animation */
+@media ( prefers-reduced-motion: reduce ) and ( update: slow ) or ( update: none ) {
+    section > div#load-state > span.fas {
+        display: none;
+    }
+}
